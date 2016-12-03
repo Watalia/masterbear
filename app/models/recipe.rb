@@ -5,6 +5,8 @@ class Recipe < ApplicationRecord
 
   # Validations
 
+  validates :intructions, :presence => true
+
   validates :intructions, :length => { :minimum => 50 }
 
   validates :name, :uniqueness => true
