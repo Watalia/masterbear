@@ -63,6 +63,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_combination" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for recipe_id -->
+      <input type="hidden" name="recipe_id" value="<%= @recipe.id %>">
+
+      <!-- Label and input for ingredient_id -->
+      <div class="form-group">
+        <label for="ingredient_id" class="control-label">
+          Ingredient
+        </label>
+
+        <%= select_tag(:ingredient_id, options_from_collection_for_select(Ingredient.all, :id, :name), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Combination
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
