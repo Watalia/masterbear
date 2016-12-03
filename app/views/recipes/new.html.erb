@@ -28,7 +28,7 @@
       </div>
 
 
-      <div class="row">
+      <!-- <div class="row">
           <div class="col-md-12">
             <ul class="list-group">
               <li class="list-group-item list-group-item-info">
@@ -54,17 +54,17 @@
                 </li>
               <% end %>
 
-          <li class="list-group-item">
+          <li class="list-group-item"> -->
 
-          <form action="/create_combination" method="post">
+          <!-- <form action="/create_combination" method="post">
               <!-- Hidden input for authenticity token to protect from forgery -->
-              <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+        <!--       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
               <!-- Label and input for recipe_id -->
-              <input type="hidden" name="recipe_id" value="<%= @recipe.id %>">
+          <!--     <input type="hidden" name="recipe_id" value="<%= @recipe.id %>">
 
               <!-- Label and input for ingredient_id -->
-              <div class="form-group">
+          <!--     <div class="form-group">
                 <label for="ingredient_id" class="control-label">
                 </label>
                   <%= select_tag(:ingredient_id, options_from_collection_for_select(Ingredient.all, :id, :name), :class => "form-control") %>
@@ -73,12 +73,11 @@
               <button class="btn btn-default btn-block"><i class="fa fa-plus"></i>
                 Add
               </button>
-              
-          </form>
-              </li>
+          <!-- </form> -->
+              <!-- </li>
             </ul>
           </div>
-        </div>
+        </div> -->
 
 
       <!-- Label and input for intructions -->
