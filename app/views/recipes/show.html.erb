@@ -5,6 +5,9 @@
 <div class="row">
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
+
+      <dd><img src="<%= @recipe.image %>"height="150px"/></dd>
+
       <dt>Name</dt>
       <dd><%= @recipe.name %></dd>
 
@@ -13,9 +16,6 @@
 
       <dt>Difficulty</dt>
       <dd><%= @recipe.difficulty %></dd>
-
-      <dt>Image</dt>
-      <dd><%= @recipe.image %></dd>
 
       <dt>Category</dt>
       <dd><%= @recipe.category_id %></dd>
