@@ -5,6 +5,8 @@ class Recipe < ApplicationRecord
 
   # Validations
 
+  validates :image, :presence => true
+
   validates :intructions, :presence => true
 
   validates :intructions, :length => { :minimum => 50 }
