@@ -1,6 +1,7 @@
 class CombinationsController < ApplicationController
   def index
-    @combinations = Combination.page(params[:page]).per(10)
+    @q = Combination.ransack(params[:q])
+    @combinations = @q.result(:distinct => true).includes(:recipe, :ingredient).page(params[:page]).per(10)
 
     render("combinations/index.html.erb")
   end
