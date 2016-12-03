@@ -6,6 +6,10 @@ class Recipe < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :ingredients,
+             :through => :combinations,
+             :source => :ingredient
+
   # Validations
 
   validates :image, :presence => true
