@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   ActiveAdmin.routes(self)
   root :to => "recipes#index"
+  
   # Routes for the Category resource:
   # CREATE
   get "/categories/new", :controller => "categories", :action => "new"
@@ -70,8 +71,7 @@ Rails.application.routes.draw do
   get "/delete_recipe/:id", :controller => "recipes", :action => "destroy"
   #------------------------------
 
-  #devise_for :users
-  root 'photos#index'
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
