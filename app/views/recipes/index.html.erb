@@ -1,12 +1,13 @@
 <div class="page-header">
   <h1>
-    Recipes
-    <a href="/recipes/new" class="btn btn-lg btn-success">New Recipe</a>
+    Welcome back, user!
+    <a href="/recipes/new" class="btn btn-lg btn-success">Add Recipe</a>
   </h1>
+
 </div><div class="row mb-1">
   <div class="col-md-12">
     <%= search_form_for @q, :class => "collapse", :id => "recipes_filters" do |f| %>
-      <p class="lead">Narrow results:</p>
+      <p class="lead">Searching for recipes with these criteria:</p>
 
         <div class="form-group">
     <%= f.label :name_cont, "Name contains" %>
@@ -90,13 +91,13 @@
       <a href="/recipes" class="btn btn-default btn-block mb-1">Clear filters</a>
     <% end %>
     <a class="btn btn-default btn-block mb-1" data-toggle="collapse" href="#recipes_filters">
-      Show Filters
+      Search for a recipe
     </a>
   </div>
 </div>
 
   <!-- Carousel -->
-  
+
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
@@ -134,6 +135,12 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+
+<hr>
+
+<h2>
+All recipes:
+</h2>
 
 <div class="row">
   <div class="col-md-12">

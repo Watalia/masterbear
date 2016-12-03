@@ -80,15 +80,22 @@ class RecipesController < ApplicationController
     end
   end
 
-  def destroy
-    @recipe = Recipe.find(params[:id])
+    def destroy
+      @recipe = Recipe.find(params[:id])
+      @recipe.destroy
 
-    @recipe.destroy
-
-    if URI(request.referer).path == "/recipes/#{@recipe.id}"
-      redirect_to("/", :notice => "Recipe deleted.")
-    else
-      redirect_back(:fallback_location => "/", :notice => "Recipe deleted.")
+      if URI(request.referer).path == "/recipes/#{@recipe.id}"
+        redirect_to("/", :notice => "Recipe deleted.")
+      else
+        redirect_back(:fallback_location => "/", :notice => "Recipe deleted.")
+      end
     end
-  end
+
+    def list
+      @q = Recipe.ransack(params[:q])
+      @recipes = @q.result(:distinct => true).includes(:combinations, :ingredients).page(params[:page]).per(10)
+      @recipe = Recipe.new
+      render("/list.html.erb")
+    end
+
 end
