@@ -16,7 +16,7 @@
 
       <% @combinations.each do |combination| %>
       <tr>
-        <td><%= combination.recipe_id %></td>
+        <td><%= combination.recipe.name %></td>
         <td><%= combination.ingredient_id %></td>
         <td>
           <a href="/combinations/<%= combination.id %>" class="btn btn-primary">Show</a>
