@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   root :to => "recipes#index"
   # Routes for the Category resource:
   # CREATE
