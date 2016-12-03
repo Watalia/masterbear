@@ -36,59 +36,59 @@
   </div>
 </div>
 
-<!-- A Recipe has many combinations -->
+  <!-- A Recipe has many combinations -->
 
-<div class="row">
-  <div class="col-md-12">
-    <ul class="list-group">
-      <li class="list-group-item list-group-item-info">
-        Combinations
-      </li>
-
-      <% @recipe.combinations.each do |combination| %>
-        <li class="list-group-item">
-          <a href="/combinations/<%= combination.id %>">
-            <%= combination.recipe_id %>
-          </a>
-          <div class="btn-group btn-group-xs pull-right">
-            <a href="/combinations/<%= combination.id %>" class="btn btn-primary">
-              <i class="fa fa-search-plus"></i>
-            </a>
-            <a href="/combinations/<%= combination.id %>/edit" class="btn btn-warning">
-              <i class="fa fa-edit"></i>
-            </a>
-            <a href="/delete_combination/<%= combination.id %>" class="btn btn-danger" rel="nofollow">
-              <i class="fa fa-trash-o"></i>
-            </a>
-          </div>
+<!-- <div class="row">
+    <div class="col-md-12">
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-info">
+          Combinations
         </li>
-      <% end %>
 
-      <li class="list-group-item">
-        <form action="/create_combination" method="post">
-      <!-- Hidden input for authenticity token to protect from forgery -->
-      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+        <% @recipe.combinations.each do |combination| %>
+          <li class="list-group-item">
+            <a href="/combinations/<%= combination.id %>">
+              <%= combination.recipe_id %>
+            </a>
+            <div class="btn-group btn-group-xs pull-right">
+              <a href="/combinations/<%= combination.id %>" class="btn btn-primary">
+                <i class="fa fa-search-plus"></i>
+              </a>
+              <a href="/combinations/<%= combination.id %>/edit" class="btn btn-warning">
+                <i class="fa fa-edit"></i>
+              </a>
+              <a href="/delete_combination/<%= combination.id %>" class="btn btn-danger" rel="nofollow">
+                <i class="fa fa-trash-o"></i>
+              </a>
+            </div>
+          </li>
+        <% end %>
 
-      <!-- Label and input for recipe_id -->
-      <input type="hidden" name="recipe_id" value="<%= @recipe.id %>">
+        <li class="list-group-item">
+          <form action="/create_combination" method="post">
+        <!-- Hidden input for authenticity token to protect from forgery -->
+        <!--<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for ingredient_id -->
-      <div class="form-group">
-        <label for="ingredient_id" class="control-label">
-          Ingredient
-        </label>
+        <!-- Label and input for recipe_id -->
+        <!--<input type="hidden" name="recipe_id" value="<%= @recipe.id %>">
 
-        <%= select_tag(:ingredient_id, options_from_collection_for_select(Ingredient.all, :id, :name), :class => "form-control") %>
-      </div>
+        <!-- Label and input for ingredient_id -->
+        <!--<div class="form-group">
+          <label for="ingredient_id" class="control-label">
+            Ingredient
+          </label>
 
-      <button class="btn btn-block btn-success">
-        Create Combination
-      </button>
-    </form>
-      </li>
-    </ul>
-  </div>
-</div>
+          <%= select_tag(:ingredient_id, options_from_collection_for_select(Ingredient.all, :id, :name), :class => "form-control") %>
+        </div>
+
+        <button class="btn btn-block btn-success">
+          Create Combination
+        </button>
+      </f orm>
+        </li>
+      </ul>
+    </div>
+  </div> -->
 
 <!-- A Recipe has many ingredients -->
 
