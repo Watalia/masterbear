@@ -27,6 +27,60 @@
         <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @recipe.name %>">
       </div>
 
+
+      <div class="row">
+          <div class="col-md-12">
+            <ul class="list-group">
+              <li class="list-group-item list-group-item-info">
+                Add ingredients
+              </li>
+
+              <% @recipe.combinations.each do |combination| %>
+                <li class="list-group-item">
+                  <a href="/combinations/<%= combination.id %>">
+                    <%= combination.recipe_id %>
+                  </a>
+                  <div class="btn-group btn-group-xs pull-right">
+                    <a href="/combinations/<%= combination.id %>" class="btn btn-primary">
+                      <i class="fa fa-search-plus"></i>
+                    </a>
+                    <a href="/combinations/<%= combination.id %>/edit" class="btn btn-warning">
+                      <i class="fa fa-edit"></i>
+                    </a>
+                    <a href="/delete_combination/<%= combination.id %>" class="btn btn-danger" rel="nofollow">
+                      <i class="fa fa-trash-o"></i>
+                    </a>
+                  </div>
+                </li>
+              <% end %>
+
+          <li class="list-group-item">
+
+          <form action="/create_combination" method="post">
+              <!-- Hidden input for authenticity token to protect from forgery -->
+              <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+              <!-- Label and input for recipe_id -->
+              <input type="hidden" name="recipe_id" value="<%= @recipe.id %>">
+
+              <!-- Label and input for ingredient_id -->
+              <div class="form-group">
+                <label for="ingredient_id" class="control-label">
+                </label>
+                  <%= select_tag(:ingredient_id, options_from_collection_for_select(Ingredient.all, :id, :name), :class => "form-control") %>
+              </div>
+
+              <button class="btn btn-default btn-block"><i class="fa fa-plus"></i>
+                Add
+              </button>
+              <%  redirect_to "/recipes/new"%>
+          </form>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+
       <!-- Label and input for intructions -->
       <div class="form-group">
         <label for="intructions" class="control-label">

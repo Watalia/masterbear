@@ -9,7 +9,7 @@
 <% end %>
 
 <div class="page-header">
-  <h3>Edit: <%= @recipe.name %></h3>
+  <h3>Edit - <%= @recipe.name %></h3>
 </div>
 
 <div class="row">
@@ -30,7 +30,7 @@
       <!-- Label and input for intructions -->
       <div class="form-group">
         <label for="intructions" class="control-label">
-          Intructions
+          Instructions
         </label>
 
         <textarea id="intructions" name="intructions" placeholder="Intructions" class="form-control" rows="3"><%= @recipe.intructions %></textarea>
@@ -62,12 +62,13 @@
 
           <div class="checkbox">
             <label>
-              <% @categories.each do |category| %>
+              <% @ingredients.each do |ingredient| %>
               <ul>
-                <li><input type="checkbox" value="">
-                    <%= category.name %></li>
-              </ul>
-
+                <input type="checkbox" id="category_id" name="category_id" value="<%= category.id %>" >
+                <li>
+                    <%= category.name %>
+                  </li>
+                </ul>
               <% end %>
             </label>
           </div>
@@ -89,6 +90,7 @@
             ">
           </div>
         </div>
+
 
       <button class="btn btn-warning">
         Update Recipe

@@ -1,4 +1,4 @@
-class CombinationsController < ApplicationController
+ class CombinationsController < ApplicationController
   def index
     @q = Combination.ransack(params[:q])
     @combinations = @q.result(:distinct => true).includes(:recipe, :ingredient).page(params[:page]).per(10)
