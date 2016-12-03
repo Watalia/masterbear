@@ -15,8 +15,8 @@
     }
   </style>
 
-  <%#= stylesheet_link_tag    "application", :media => "all" %>
-  <%#= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -41,15 +41,16 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><a href="/recipes"><i class="fa fa-cutlery" aria-hidden="true"></i>Recipes</a></li>
+          <li><a href="/categories">Categories</a></li>
+          <li><a href="/combinations">Combinations</a></li>
           <li><a href="/ingredients">Ingredients</a></li>
-          <li><a href="/combinations"><i class="fa fa-paw" aria-hidden="true"></i>Combinations</a></li>
+          <li><a href="/recipes">Recipes</a></li>
           <li><a href="/rails/info">Sitemap</a></li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="/users/edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit Profile</a></li>
-          <li><a href="/users/sign_out" data-method="delete" rel="nofollow"><i class="fa fa-sign-out" aria-hidden="true"></i>Sign Out</a></li>
+          <li><a href="/users/edit">Dummy Edit Profile Link</a></li>
+          <li><a href="/users/sign_out" data-method="delete" rel="nofollow">Dummy Sign Out Link</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div>
