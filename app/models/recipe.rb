@@ -10,6 +10,11 @@ class Recipe < ApplicationRecord
              :through => :combinations,
              :source => :ingredient
 
+  belongs_to :category,
+             :counter_cache => true
+
+
+
   # Validations
 
   validates :image, :presence => true

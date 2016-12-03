@@ -60,6 +60,16 @@
           Category
         </label>
 
+        <div class="dropdown">
+          <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Category
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dLabel">
+            ...
+          </ul>
+        </div>
+
         <input type="text" id="category_id" name="category_id" placeholder="Category" class="form-control" value="<%= @recipe.category_id %>">
       </div>
 
