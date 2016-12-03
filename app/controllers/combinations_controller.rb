@@ -1,6 +1,6 @@
 class CombinationsController < ApplicationController
   def index
-    @combinations = Combination.all
+    @combinations = Combination.page(params[:page]).per(10)
 
     render("combinations/index.html.erb")
   end
