@@ -46,7 +46,7 @@ class RecipesController < ApplicationController
 
   def edit
     @recipe = Recipe.find(params[:id])
-
+    @categories = Category.all
     render("recipes/edit.html.erb")
   end
 
