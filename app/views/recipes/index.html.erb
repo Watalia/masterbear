@@ -103,7 +103,7 @@
         <th>Name</th>
         <th>Intructions</th>
         <th>Difficulty</th>
-        <th>Category</th>
+        <th>Ingredients</th>
         <th>Actions</th>
       </tr>
 
@@ -113,7 +113,12 @@
         <td><%= recipe.name %></td>
         <td><%= truncate(recipe.intructions) %></td>
         <td><%= recipe.difficulty %></td>
-        <td><%= recipe.category_id %></td>
+        <td> <% recipe.ingredients.each do |ingredient| %>
+                <ul>
+                  <li>  <%= ingredient.name %></li>
+                </ul>
+              <% end %>
+        </td>
         <td>
           <a href="/recipes/<%= recipe.id %>" class="btn btn-primary">Show</a>
           <a href="/recipes/<%= recipe.id %>/edit" class="btn btn-warning">Edit</a>
