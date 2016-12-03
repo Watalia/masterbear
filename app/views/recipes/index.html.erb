@@ -1,14 +1,14 @@
 <div class="page-header">
   <% if current_user != nil %>
   <h1>
-    Welcome back, <%= current_user.username%>
+    Welcome back, <%= current_user.email%>!
     <a href="/recipes/new" class="btn btn-lg btn-success">Add Recipe</a>
   </h1>
   <% else %>
   <h1>
     Welcome back!
     <a href="/recipes/new" class="btn btn-lg btn-success">Add Recipe</a>
-  </h1>  
+  </h1>
   <% end %>
 
 </div><div class="row mb-1">
