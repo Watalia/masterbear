@@ -1,0 +1,73 @@
+<!-- Validation failure messages -->
+<% if @recipe.errors.any? %>
+  <% @recipe.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Recipe #<%= @recipe.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_recipe/<%= @recipe.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @recipe.name %>">
+      </div>
+
+      <!-- Label and input for intructions -->
+      <div class="form-group">
+        <label for="intructions" class="control-label">
+          Intructions
+        </label>
+
+        <textarea id="intructions" name="intructions" placeholder="Intructions" class="form-control" rows="3"><%= @recipe.intructions %></textarea>
+      </div>
+
+      <!-- Label and input for difficulty -->
+      <div class="form-group">
+        <label for="difficulty" class="control-label">
+          Difficulty
+        </label>
+
+        <input type="text" id="difficulty" name="difficulty" placeholder="Difficulty" class="form-control" value="<%= @recipe.difficulty %>">
+      </div>
+
+      <!-- Label and input for image -->
+      <div class="form-group">
+        <label for="image" class="control-label">
+          Image
+        </label>
+
+        <input type="text" id="image" name="image" placeholder="Image" class="form-control" value="<%= @recipe.image %>">
+      </div>
+
+      <!-- Label and input for category_id -->
+      <div class="form-group">
+        <label for="category_id" class="control-label">
+          Category
+        </label>
+
+        <input type="text" id="category_id" name="category_id" placeholder="Category" class="form-control" value="<%= @recipe.category_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Recipe
+      </button>
+      or
+      <a href="/recipes/<%= @recipe.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
