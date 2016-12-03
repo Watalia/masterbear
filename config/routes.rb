@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Combination resource:
+  # CREATE
+  get "/combinations/new", :controller => "combinations", :action => "new"
+  post "/create_combination", :controller => "combinations", :action => "create"
+
+  # READ
+  get "/combinations", :controller => "combinations", :action => "index"
+  get "/combinations/:id", :controller => "combinations", :action => "show"
+
+  # UPDATE
+  get "/combinations/:id/edit", :controller => "combinations", :action => "edit"
+  post "/update_combination/:id", :controller => "combinations", :action => "update"
+
+  # DELETE
+  get "/delete_combination/:id", :controller => "combinations", :action => "destroy"
+  #------------------------------
+
   # Routes for the Ingredient resource:
   # CREATE
   get "/ingredients/new", :controller => "ingredients", :action => "new"

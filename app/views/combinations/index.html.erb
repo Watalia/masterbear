@@ -1,0 +1,30 @@
+<div class="page-header">
+  <h1>
+    Combinations
+    <a href="/combinations/new" class="btn btn-lg btn-success">New Combination</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Recipe</th>
+        <th>Ingredient</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @combinations.each do |combination| %>
+      <tr>
+        <td><%= combination.recipe_id %></td>
+        <td><%= combination.ingredient_id %></td>
+        <td>
+          <a href="/combinations/<%= combination.id %>" class="btn btn-primary">Show</a>
+          <a href="/combinations/<%= combination.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_combination/<%= combination.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
