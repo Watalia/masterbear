@@ -63,6 +63,23 @@
         <input type="text" id="category_id" name="category_id" placeholder="Category" class="form-control" value="<%= @recipe.category_id %>">
       </div>
 
+      <!-- Label and input for ingredients -->
+      <div class="form-group">
+        <label for="ingredients" class="control-label">
+          Ingredients
+        </label>
+
+        <div class="row">
+          <div class="col-md-12">
+            <ul class="list-group">
+              <input type="text" id="ingredients" name="ingredients" placeholder="Ingredients" class="form-control"
+                value="<% @recipe.ingredients.each do |ingredient| %>
+                <%= ingredient.name %>
+                <% end %>
+            ">
+          </div>
+        </div>
+
       <button class="btn btn-warning">
         Update Recipe
       </button>

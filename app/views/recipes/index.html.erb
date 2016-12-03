@@ -101,7 +101,7 @@
       <tr>
         <th>Image</th>
         <th>Name</th>
-        <th>Intructions</th>
+        <th>Instructions</th>
         <th>Difficulty</th>
         <th>Ingredients</th>
         <th>Actions</th>
@@ -115,7 +115,7 @@
         <td><%= recipe.difficulty %></td>
         <td> <% recipe.ingredients.each do |ingredient| %>
                 <ul>
-                  <li>  <%= ingredient.name %></li>
+                  <li><a href="/ingredients/<%= recipe.id %>"><%= ingredient.name %></a></li>
                 </ul>
               <% end %>
         </td>
