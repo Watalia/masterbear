@@ -1,4 +1,5 @@
 source 'http://rubygems.org'
+gem 'devise'
 
 gem "wdm" if Gem.win_platform?
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
