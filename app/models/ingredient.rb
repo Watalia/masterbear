@@ -5,4 +5,6 @@ class Ingredient < ApplicationRecord
 
   # Validations
 
+  validates :name, :presence => true
+
 end
