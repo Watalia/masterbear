@@ -16,8 +16,20 @@
 
       <% @combinations.each do |combination| %>
       <tr>
-        <td><%= combination.recipe.name %></td>
-        <td><%= combination.ingredient.name %></td>
+        <td>
+          <% if combination.recipe.present? %>
+            <a href="/recipes/<%= combination.recipe.id %>">
+              <%= combination.recipe.name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if combination.ingredient.present? %>
+            <a href="/ingredients/<%= combination.ingredient.id %>">
+              <%= combination.ingredient.name %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/combinations/<%= combination.id %>" class="btn btn-primary">Show</a>
           <a href="/combinations/<%= combination.id %>/edit" class="btn btn-warning">Edit</a>
