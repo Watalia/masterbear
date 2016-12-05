@@ -113,7 +113,15 @@
           Category
         </label>
 
-        <input type="text" id="category_id" name="category_id" placeholder="Category" class="form-control" value="<%= @recipe.category_id %>">
+        <div class="dropdown open">
+          <select name="category_id">
+            <% Category.all.each do |category| %>
+            <option value="<%=category.id%>">
+              <%=category.name%>
+            </option>
+            <% end %>
+          </select>
+        </div>
       </div>
 
       <button class="btn btn-success">
@@ -121,6 +129,42 @@
       </button>
       or
       <a href="/recipes">Cancel</a>
+    </form>
+  </div>
+</div>
+
+<!-- Add ingredients -->
+<div class="page-header">
+  <h3>Add Combination</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_combination" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for recipe_id -->
+      <div class="form-group">
+        <label for="recipe_id" class="control-label">
+          Recipe
+        </label>
+        <%= select_tag(:recipe_id, options_from_collection_for_select(Recipe.all, :id, :name, @combination.recipe_id), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for ingredient_id -->
+      <div class="form-group">
+        <label for="ingredient_id" class="control-label">
+          Ingredient
+        </label>
+        <%= select_tag(:ingredient_id, options_from_collection_for_select(Ingredient.all, :id, :name, @combination.ingredient_id), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-success">
+        Create Combination
+      </button>
+      or
+      <a href="/combinations">Cancel</a>
     </form>
   </div>
 </div>

@@ -3,6 +3,7 @@ class RecipesController < ApplicationController
     @q = Recipe.ransack(params[:q])
     @recipes = @q.result(:distinct => true).includes(:combinations, :ingredients).page(params[:page]).per(10)
     @recipe = Recipe.new
+    @combinations = Combination.all
 
     render("recipes/index.html.erb")
   end
@@ -17,14 +18,16 @@ class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
     @ingredients = Ingredient.all
-
+    @combination = Combination.new
+    @combinations = Combination.all
 
     render("recipes/new.html.erb")
   end
 
   def create
-    @recipe = Recipe.new
+    @combination = Combination.new
 
+    @recipe = Recipe.new
     @recipe.name = params[:name]
     @recipe.intructions = params[:intructions]
     @recipe.difficulty = params[:difficulty]
