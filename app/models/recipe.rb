@@ -10,8 +10,7 @@ class Recipe < ApplicationRecord
              :through => :combinations,
              :source => :ingredient
 
-  belongs_to :category,
-             :counter_cache => true
+  belongs_to :category
 
 
 
