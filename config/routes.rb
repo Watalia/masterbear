@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   ActiveAdmin.routes(self)
-  root :to => "recipes#index"
+  root :to => "sessions#index"
+
+
+  get "/masterbear", :controller => "sessions", :action => "index"
 
   # Routes for the Category resource:
   # CREATE
@@ -71,7 +74,6 @@ Rails.application.routes.draw do
   get "/delete_recipe/:id", :controller => "recipes", :action => "destroy"
   #------------------------------
 
-  get "/list", :controller => "recipes", :action => "destroy"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
