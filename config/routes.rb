@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   ActiveAdmin.routes(self)
-  root :to => "recipes#index"
+  root :to => "sessions#index"
 
 
   get "/masterbear", :controller => "sessions", :action => "index"
+
   get "/add_ingredients/:num", :controller => "sessions", :action => "add_ingredients"
 
   # Routes for the Category resource:
