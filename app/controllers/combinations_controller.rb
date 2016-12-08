@@ -40,13 +40,13 @@
     @save_status=false
 
     @recipe = Recipe.find(params[:id])
-    @ingredients = @recipe.ingredients
+    
     @combinations = @recipe.combinations
       @combinations.each do |c|
           @combination = c
           @combination.recipe_id = params[:id]
-              @ingredients.each do |i|
-                  @combination.ingredient_id = i.id
+              params[:ingredient_id].each do |i|
+                  @combination.ingredient_id = i
               end
 
       @save_status = @combination.save

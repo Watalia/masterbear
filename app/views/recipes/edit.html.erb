@@ -64,7 +64,7 @@
         <div class="dropdown open">
           <select name="category_id">
             <% Category.all.each do |category| %>
-            <option value="<%=@recipe.category%>" name="category_id">
+            <option value="<%=category.id%>" name="category_id">
               <%=category.name%>
             </option>
             <% end %>
