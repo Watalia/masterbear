@@ -20,23 +20,19 @@
 
   def create
 
-  the_hash = params[:ingredient_id]
+    @combination = Combination.new
 
-    the_hash.each do |combination|
+    params[:ingredient_id].each do |i|
 
-    combination = Combination.new
+      @combination = Combination.new
 
-    combination.recipe_id = params[:recipe_id]
+      @combination.ingredient_id = i
 
-    combination.ingredient_id = combination
+      @combination.recipe_id = params[:recipe_id]
 
-        save_status = combination.save
+      @combination.save
 
     end
-
-    @combination = Combination.new
-    @combination.recipe_id = params[:recipe_id]
-    @combination.ingredient_id=params[:ingredient_id[0]]
 
     redirect_to("/recipes/new", :notice => "Ingredients were added succesfully")
 
