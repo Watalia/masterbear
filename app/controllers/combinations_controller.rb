@@ -19,26 +19,29 @@
   end
 
   def create
-    @combination = Combination.new
 
-    @combination.recipe_id = params[:recipe_id]
-    @combination.ingredient_id = params[:ingredient_id]
+  the_hash = params[:ingredient_id]
 
-    save_status = @combination.save
+    the_hash.each do |combination|
 
-    if save_status == true
-      referer = URI(request.referer).path
+    combination = Combination.new
 
-      case referer
-      when "/combinations/new", "/create_combination"
-        redirect_to("/combinations")
-      else
-        redirect_back(:fallback_location => "/", :notice => "Combination created successfully.")
-      end
-    else
-      render("combinations/new.html.erb")
+    combination.recipe_id = params[:recipe_id]
+
+    combination.ingredient_id = combination
+
+        save_status = combination.save
+
     end
+
+    @combination = Combination.new
+    @combination.recipe_id = params[:recipe_id]
+    @combination.ingredient_id=params[:ingredient_id[0]]
+
+    redirect_to("/recipes/new", :notice => "Ingredients were added succesfully")
+
   end
+
 
   def edit
     @combination = Combination.find(params[:id])

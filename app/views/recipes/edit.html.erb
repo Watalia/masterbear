@@ -86,8 +86,9 @@
               <input type="text" id="ingredients" name="ingredients" placeholder="Ingredients" class="form-control"
                 value="<% @recipe.ingredients.each do |ingredient| %>
                 <%= ingredient.name %>
-                <% end %>
-            ">
+                <% end %>"
+                >
+            <ul>
           </div>
         </div>
 
