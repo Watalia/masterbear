@@ -1,71 +1,61 @@
  class CombinationsController < ApplicationController
+
   def index
     @q = Combination.ransack(params[:q])
     @combinations = Combination.all
-
     render("combinations/index.html.erb")
   end
 
   def show
     @combination = Combination.find(params[:id])
-
     render("combinations/show.html.erb")
   end
 
   def new
     @combination = Combination.new
-
     render("combinations/new.html.erb")
   end
 
   def create
-
     @combination = Combination.new
-
     params[:ingredient_id].each do |i|
-
       @combination = Combination.new
-
       @combination.ingredient_id = i
-
       @combination.recipe_id = params[:recipe_id]
-
       @combination.save
-
     end
 
     @recipe = Recipe.find(params[:num_2])
-
     redirect_to("/recipes/#{@recipe.id}", :notice => "Your recipe was added succesfully!")
-
   end
 
 
   def edit
     @combination = Combination.find(params[:id])
-
     render("combinations/edit.html.erb")
   end
 
   def update
-    @combination = Combination.find(params[:id])
 
-    @combination.recipe_id = params[:recipe_id]
-    @combination.ingredient_id = params[:ingredient_id]
+    @save_status=false
 
-    save_status = @combination.save
+    @recipe = Recipe.find(params[:id])
+    @ingredients = @recipe.ingredients
+    @combinations = @recipe.combinations
+      @combinations.each do |c|
+          @combination = c
+          @combination.recipe_id = params[:id]
+              @ingredients.each do |i|
+                  @combination.ingredient_id = i.id
+              end
 
-    if save_status == true
-      referer = URI(request.referer).path
-
-      case referer
-      when "/combinations/#{@combination.id}/edit", "/update_combination"
-        redirect_to("/combinations/#{@combination.id}", :notice => "Combination updated successfully.")
-      else
-        redirect_back(:fallback_location => "/", :notice => "Combination updated successfully.")
+      @save_status = @combination.save
       end
+
+    if @save_status == true
+        redirect_to("/recipes", :notice => "Your recipe was edited succesfully!")
     else
-      render("combinations/edit.html.erb")
+        redirect_to("/update_ingrediente/#{@recipe.id}", :notice => "Something went wrong. Please try again.")
     end
   end
 
@@ -80,4 +70,5 @@
       redirect_back(:fallback_location => "/", :notice => "Combination deleted.")
     end
   end
+
 end

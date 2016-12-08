@@ -18,7 +18,7 @@
       <dd><%= @recipe.difficulty %></dd>
 
       <dt>Category</dt>
-      <dd><%= @recipe.category_id %></dd>
+      <dd><%= Category.find(@recipe.category_id).name %></dd>
 
     </dl>
 

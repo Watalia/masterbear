@@ -1,0 +1,33 @@
+<!-- Label and input for ingredients -->
+<div class="form-group">
+  <label for="ingredients" class="control-label">
+    <h2>
+    Update ingredients
+    </h2>
+  </label>
+
+<form action="/update_combination/<%= @recipe.id %>" method="post">
+
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+  <input type="hidden" id="recipe" name="recipe_id" class="form-control" value="<%=@recipe.id%>">
+
+  <div class="checkbox">
+    <% @ingredients.each do |ingredient| %>
+    <ul>
+      <label>
+        <input type="checkbox" id="ingredient_id" name="ingredient_id[]" value="<%=ingredient.id %>">
+        <li>
+          <%= ingredient.name %>
+        </li>
+      </ul>
+      <% end %>
+    </label>
+  </div>
+
+  <button class="btn btn-warning">
+    Submit
+  </button>
+  or
+  <a href="/recipes/<%= @recipe.id %>">Cancel</a>
+
+</form> 

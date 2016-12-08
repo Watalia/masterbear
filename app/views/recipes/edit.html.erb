@@ -9,7 +9,8 @@
 <% end %>
 
 <div class="page-header">
-  <h3>Edit - <%= @recipe.name %></h3>
+  <h2>Step 1: Edit instructions</h2>
+  <h3><%= @recipe.name %></h3>
 </div>
 
 <div class="row">
@@ -55,46 +56,24 @@
       </div>
 
       <!-- Label and input for category_id -->
-      <label for="category_id" class="control-label">
-          Category
-      </label>
-
-
-          <div class="checkbox">
-            <label>
-              <% @ingredients.each do |category| %>
-              <ul>
-                <input type="checkbox" id="category_id" name="category_id" value="<%= category.id %>" >
-                <li>
-                    <%= category.name %>
-                  </li>
-                </ul>
-              <% end %>
-            </label>
-          </div>
-            </div>
-
-      <!-- Label and input for ingredients -->
       <div class="form-group">
-        <label for="ingredients" class="control-label">
-          Ingredients
+        <label for="category_id" class="control-label">
+          Category
         </label>
 
-        <div class="row">
-          <div class="col-md-12">
-            <ul class="list-group">
-              <input type="text" id="ingredients" name="ingredients" placeholder="Ingredients" class="form-control"
-                value="<% @recipe.ingredients.each do |ingredient| %>
-                <%= ingredient.name %>
-                <% end %>"
-                >
-            <ul>
-          </div>
+        <div class="dropdown open">
+          <select name="category_id">
+            <% Category.all.each do |category| %>
+            <option value="<%=@recipe.category%>" name="category_id">
+              <%=category.name%>
+            </option>
+            <% end %>
+          </select>
         </div>
-
+      </div>
 
       <button class="btn btn-warning">
-        Update Recipe
+      Go to step 2: Update ingredients
       </button>
       or
       <a href="/recipes/<%= @recipe.id %>">Cancel</a>

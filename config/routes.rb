@@ -5,8 +5,9 @@ Rails.application.routes.draw do
 
 
   get "/masterbear", :controller => "sessions", :action => "index"
-
   get "/add_ingredients/:num", :controller => "sessions", :action => "add_ingredients"
+
+  get "/update_ingredients/:id", :controller => "sessions", :action => "update_ingredients"
 
   # Routes for the Category resource:
   # CREATE
@@ -76,7 +77,7 @@ Rails.application.routes.draw do
   # DELETE
   get "/delete_recipe/:id", :controller => "recipes", :action => "destroy"
   #------------------------------
-
+  get "/add_ingredients/:num", :controller => "sessions", :action => "add_ingredients"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
