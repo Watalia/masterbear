@@ -11,6 +11,7 @@
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
         <div class="form-group">
         <input type="hidden" id="recipe" name="recipe_id" class="form-control" value="<%=@recipe.id%>">
+
           <div class="checkbox">
             <% @ingredients.each do |ingredient| %>
           <ul>

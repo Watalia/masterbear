@@ -40,17 +40,17 @@
     @save_status=false
 
     @recipe = Recipe.find(params[:id])
-    
     @combinations = @recipe.combinations
-      @combinations.each do |c|
-          @combination = c
-          @combination.recipe_id = params[:id]
-              params[:ingredient_id].each do |i|
-                  @combination.ingredient_id = i
-              end
+    @combinations.each do |c|
+      c.destroy
+    end
 
+    params[:ingredient_id].each do |i|
+      @combination = Combination.new
+      @combination.ingredient_id = i
+      @combination.recipe_id = params[:recipe_id]
       @save_status = @combination.save
-      end
+    end
 
     if @save_status == true
         redirect_to("/recipes", :notice => "Your recipe was edited succesfully!")
