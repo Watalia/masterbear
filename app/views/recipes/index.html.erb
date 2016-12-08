@@ -121,7 +121,7 @@ All recipes:
 
       <% @recipes.each do |recipe| %>
       <tr>
-        <td><img src="<%= recipe.image %>"height="150px"/></td>
+        <td><img src="<%= recipe.image %>"height="150px"class="img-rounded"></td>
         <td><%= recipe.name %></td>
         <td><%= truncate(recipe.intructions) %></td>
         <td><%= recipe.difficulty %></td>
