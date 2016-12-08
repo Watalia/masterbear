@@ -6,7 +6,7 @@
 <div class="row">
   <div class="col-md-12">
 
-    <form action="/create_combination" method="post">
+    <form action="/create_combination/<%=@recipe.id%>" method="post">
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
         <div class="form-group">
         <input type="hidden" id="recipe" name="recipe_id" class="form-control" value="<%=@recipe.id%>">
@@ -24,7 +24,7 @@
           </div>
 
       <button class="btn btn-success">
-        Create Combination
+        Submit recipe
       </button>
       or
       <a href="/recipes/new">Cancel</a>

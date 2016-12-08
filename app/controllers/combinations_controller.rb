@@ -34,7 +34,9 @@
 
     end
 
-    redirect_to("/recipes/new", :notice => "Ingredients were added succesfully")
+    @recipe = Recipe.find(params[:num_2])
+
+    redirect_to("/recipes/#{@recipe.id}", :notice => "Your recipe was added succesfully!")
 
   end
 

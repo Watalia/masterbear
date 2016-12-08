@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   # CREATE
   get "/combinations/new", :controller => "combinations", :action => "new"
   post "/create_combination", :controller => "combinations", :action => "create"
+  post "/create_combination/:num_2", :controller => "combinations", :action => "create"
 
   # READ
   get "/combinations", :controller => "combinations", :action => "index"
