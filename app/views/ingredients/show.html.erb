@@ -1,15 +1,12 @@
 <div class="page-header">
-  <h3>Ingredient #<%= @ingredient.id %></h3>
+  <h3><%= @ingredient.name %></h3>
 </div>
 
 <div class="row">
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
-      <dt>Name</dt>
-      <dd><%= @ingredient.name %></dd>
-
-      <dt>Image ingredient</dt>
-      <dd><%= @ingredient.image_ingredient %></dd>
+          
+      <dd><img src="<%= @ingredient.image_ingredient %>"height="150px"/></dd>
 
     </dl>
 

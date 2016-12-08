@@ -6,7 +6,7 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
 
-      <dd><img src="<%= @recipe.image %>"height="150px"/></dd>
+      <dd><img src="<%= @recipe.image %>" height="150px" class="img-circle"></dd>
 
       <dt>Name</dt>
       <dd><%= @recipe.name %></dd>
@@ -109,17 +109,6 @@
           <a href="/ingredients/<%= ingredient.id %>">
             <%= ingredient.name %>
           </a>
-          <div class="btn-group btn-group-xs pull-right">
-            <a href="/ingredients/<%= ingredient.id %>" class="btn btn-primary">
-              <i class="fa fa-search-plus"></i>
-            </a>
-            <a href="/ingredients/<%= ingredient.id %>/edit" class="btn btn-warning">
-              <i class="fa fa-edit"></i>
-            </a>
-            <a href="/delete_ingredient/<%= ingredient.id %>" class="btn btn-danger" rel="nofollow">
-              <i class="fa fa-trash-o"></i>
-            </a>
-          </div>
         </li>
       <% end %>
     </ul>

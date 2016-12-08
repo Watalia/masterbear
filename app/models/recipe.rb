@@ -16,6 +16,8 @@ class Recipe < ApplicationRecord
 
   # Validations
 
+  validates :name, :presence => true
+
   validates :image, :presence => true
 
   validates :intructions, :presence => true
@@ -24,6 +26,5 @@ class Recipe < ApplicationRecord
 
   validates :name, :uniqueness => true
 
-  validates :name, :presence => true
 
 end

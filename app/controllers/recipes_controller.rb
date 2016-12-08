@@ -36,14 +36,17 @@ class RecipesController < ApplicationController
 
     save_status = @recipe.save
 
-    if save_status==true
+    if save_status == true
+      referer = URI(request.referer).path
 
-    redirect_to("/add_ingredients/#{@recipe.id}", :notice => "Intructions added correctly, please add ingredients")
-
+      case referer
+      when "/recipes/new", "/create_recipe"
+        redirect_to("/add_ingredients/#{@recipe.id}")
+      else
+        redirect_back(:fallback_location => "/", :notice => "Ingredient created successfully.")
+      end
     else
-
-      redirect_to("/recipes/new", :notice => "Something went wrong. Please try again. ")
-
+      render("recipes/new.html.erb")
     end
   end
 
