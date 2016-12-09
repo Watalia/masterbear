@@ -25,31 +25,28 @@
   <%= f.label :category_id, "Category" %>
   <div class="row">
     <div class='col-md-6 mb-1'>
-      <%= f.text_field :category_id_gteq, :class => "form-control", :placeholder => "Category greater than or equal to" %>
-    </div>
-    <div class='col-md-6'>
-      <%= f.text_field :category_id_lteq, :class => "form-control", :placeholder => "Category less than or equal to" %>
+      <%= f.select :category_id_eq, options_from_collection_for_select(Category.all,:id,:name,@q.category_id_eq),{:include_blank=>true},:class=>"form-control"%>
     </div>
   </div>
 </div>
 
-<div class="form-group">
+<!-- <div class="form-group">
     <%= f.label :image_cont, "Image contains" %>
     <%= f.text_field :image_cont, :class => "form-control", :placeholder => "Image contains" %>
-  </div>
+  </div> -->
 
-<div class="form-group">
+<!-- <div class="form-group">
     <%= f.label :difficulty_cont, "Difficulty contains" %>
     <%= f.text_field :difficulty_cont, :class => "form-control", :placeholder => "Difficulty contains" %>
-  </div>
+  </div> -->
 
-<div class="form-group">
+<!-- <div class="form-group">
     <%= f.label :intructions_cont, "Intructions contains" %>
     <%= f.text_field :intructions_cont, :class => "form-control", :placeholder => "Intructions contains" %>
-  </div>
+  </div> -->
 
 <div class="form-group">
-          <%= f.label :created_at, "Created at" %>
+          <%= f.label :created_at, "Uploaded at" %>
           <div class="row">
             <div class='col-md-6 mb-1'>
               <div class='input-group date' id='created_atgteqPicker'>
@@ -88,7 +85,7 @@
           });
       </script>
 
-        <div class="form-group">
+    <div class="form-group">
       <%= f.label :ingredients_name_cont, "Ingredient name contains" %>
       <%= f.text_field :ingredients_name_cont, :class => "form-control", :placeholder => "Ingredient name contains" %>
     </div>
@@ -102,6 +99,7 @@
     </a>
   </div>
 </div>
+
 
 <h2>
 All recipes:
