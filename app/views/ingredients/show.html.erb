@@ -1,12 +1,12 @@
 <div class="page-header">
-  <h3><%= @ingredient.name %></h3>
+  <h3>Recipes with <%= @ingredient.name %></h3>
 </div>
 
 <div class="row">
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
-          
-      <dd><img src="<%= @ingredient.image_ingredient %>"height="150px"/></dd>
+
+      <dd><img src="<%= @ingredient.image_ingredient %>"height="150px"class="img-circle"></dd>
 
     </dl>
 
@@ -24,59 +24,6 @@
   </div>
 </div>
 
-<!-- A Ingredient has many combinations -->
-
-<div class="row">
-  <div class="col-md-12">
-    <ul class="list-group">
-      <li class="list-group-item list-group-item-info">
-        Combinations
-      </li>
-
-      <% @ingredient.combinations.each do |combination| %>
-        <li class="list-group-item">
-          <a href="/combinations/<%= combination.id %>">
-            <%= combination.recipe_id %>
-          </a>
-          <div class="btn-group btn-group-xs pull-right">
-            <a href="/combinations/<%= combination.id %>" class="btn btn-primary">
-              <i class="fa fa-search-plus"></i>
-            </a>
-            <a href="/combinations/<%= combination.id %>/edit" class="btn btn-warning">
-              <i class="fa fa-edit"></i>
-            </a>
-            <a href="/delete_combination/<%= combination.id %>" class="btn btn-danger" rel="nofollow">
-              <i class="fa fa-trash-o"></i>
-            </a>
-          </div>
-        </li>
-      <% end %>
-
-      <li class="list-group-item">
-        <form action="/create_combination" method="post">
-      <!-- Hidden input for authenticity token to protect from forgery -->
-      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-
-      <!-- Label and input for recipe_id -->
-      <div class="form-group">
-        <label for="recipe_id" class="control-label">
-          Recipe
-        </label>
-
-        <%= select_tag(:recipe_id, options_from_collection_for_select(Recipe.all, :id, :name), :class => "form-control") %>
-      </div>
-
-      <!-- Label and input for ingredient_id -->
-      <input type="hidden" name="ingredient_id" value="<%= @ingredient.id %>">
-
-      <button class="btn btn-block btn-success">
-        Create Combination
-      </button>
-    </form>
-      </li>
-    </ul>
-  </div>
-</div>
 
 <!-- A Ingredient has many recipes -->
 
