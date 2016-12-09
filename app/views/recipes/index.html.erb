@@ -46,7 +46,7 @@
   </div> -->
 
 <div class="form-group">
-          <%= f.label :created_at, "Uploaded at" %>
+          <%= f.label :created_at, "Uploaded between" %>
           <div class="row">
             <div class='col-md-6 mb-1'>
               <div class='input-group date' id='created_atgteqPicker'>
@@ -85,10 +85,19 @@
           });
       </script>
 
-    <div class="form-group">
-      <%= f.label :ingredients_name_cont, "Ingredient name contains" %>
-      <%= f.text_field :ingredients_name_cont, :class => "form-control", :placeholder => "Ingredient name contains" %>
-    </div>
+      <div class="form-group">
+        <%= f.label :ingredients_name_cont, "Recipe contains the following ingredients" %>
+        <div class="row">
+            <div class='col-md-6 mb-1'>
+          <% Ingredient.all.each do |ingredient| %>
+          <label>
+            <%= check_box_tag('q[ingredients_id_eq_any][]', ingredient.id, (true if @q.ingredients_id_eq_any.try(:include?, ingredient.id))) %>
+            <%= ingredient.name %>
+          </label>
+          <% end %>
+            </div>
+        </div>
+      </div>
 
       <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
 
@@ -101,9 +110,9 @@
 </div>
 
 
-<h2>
+<h3>
 All recipes:
-</h2>
+</h3>
 
 <div class="row">
   <div class="col-md-12">
